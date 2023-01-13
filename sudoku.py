@@ -12,7 +12,7 @@ def printsudoku(mat):
 #FIRST BOX IN SUDOKU
 mat[r.randint(0,1)][r.randint(0,1)]=r.randint(1,4)
 #SECOND BOX
-# comment
+
 n = r.randint(1,4)
 if (n == 1):
     mat[0][2] = c([i for i in range(1, 5) if i not in [mat[0][0], mat[0][1], mat[2][2], mat[3][2]]])
