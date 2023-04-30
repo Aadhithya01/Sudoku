@@ -10,41 +10,58 @@ def printsudoku(mat):
         print("|")
     print("---------------------------------")
 #FIRST BOX IN SUDOKU
-mat[r.randint(0,1)][r.randint(0,1)]=r.randint(1,4)
+val = []
+n = r.randint(1,4)
+val.append(n)
+mat[r.randint(0,1)][r.randint(0,1)] = n
 #SECOND BOX
 
 n = r.randint(1,4)
 if (n == 1):
-    mat[0][2] = c([i for i in range(1, 5) if i not in [mat[0][0], mat[0][1], mat[2][2], mat[3][2]]])
+    mat[0][2] = c([i for i in range(1, 5) if (i not in [mat[0][0], mat[0][1], mat[2][2], mat[3][2]] and i not in val)])
+    val.append(mat[0][2])
 elif (n == 2):
-    mat[0][3] = c([i for i in range(1, 5) if i not in [mat[0][0], mat[0][1], mat[2][3], mat[3][3]]])
+    mat[0][3] = c([i for i in range(1, 5) if (i not in [mat[0][0], mat[0][1], mat[2][3], mat[3][3]] and i not in val)])
+    val.append(mat[0][3])
 elif (n == 3):
-    mat[1][2] = c([i for i in range(1, 5) if i not in [mat[1][0], mat[1][1], mat[2][2], mat[3][2]]])
+    mat[1][2] = c([i for i in range(1, 5) if (i not in [mat[1][0], mat[1][1], mat[2][2], mat[3][2]] and i not in val)])
+    val.append(mat[1][2])
 else:
-    mat[1][3] = c([i for i in range(1, 5) if i not in [mat[1][0], mat[1][1], mat[2][3], mat[3][3]]])
+    mat[1][3] = c([i for i in range(1, 5) if (i not in [mat[1][0], mat[1][1], mat[2][3], mat[3][3]] and i not in val)])
+    val.append(mat[1][3])
 #THIRD BOX
 n = r.randint(1,4)
 if (n == 1):
-    mat[2][0] = c([i for i in range(1, 5) if i not in [mat[0][0], mat[1][0], mat[2][2], mat[2][3]]])
+    mat[2][0] = c([i for i in range(1, 5) if (i not in [mat[0][0], mat[1][0], mat[2][2], mat[2][3]]and i not in val)])
+    val.append(mat[2][0])
 elif (n == 2):
-    mat[2][1] = c([i for i in range(1, 5) if i not in [mat[0][1], mat[1][1], mat[2][2], mat[2][3]]])
+    mat[2][1] = c([i for i in range(1, 5) if (i not in [mat[0][1], mat[1][1], mat[2][2], mat[2][3]]and i not in val)])
+    val.append(mat[2][1])
 elif (n == 3):
-    mat[3][0] = c([i for i in range(1, 5) if i not in [mat[0][0], mat[1][0], mat[3][2], mat[3][3]]])
+    mat[3][0] = c([i for i in range(1, 5) if (i not in [mat[0][0], mat[1][0], mat[3][2], mat[3][3]]and i not in val)])
+    val.append(mat[3][0])
 else:
-    mat[3][1] = c([i for i in range(1, 5) if i not in [mat[0][1], mat[1][1], mat[3][2], mat[3][3]]])
+    mat[3][1] = c([i for i in range(1, 5) if (i not in [mat[0][1], mat[1][1], mat[3][2], mat[3][3]]and i not in val)])
+    val.append(mat[3][1])
 #LAST BOX IN SUDOKU
 n = r.randint(1,4)
 if (n == 1):
-    mat[2][2] = c([i for i in range(1, 5) if i not in [mat[0][2], mat[1][2], mat[2][0], mat[2][1]]])
+    mat[2][2] = c([i for i in range(1, 5) if (i not in [mat[0][2], mat[1][2], mat[2][0], mat[2][1]]and i not in val)])
+    val.append(mat[2][2])
 elif (n == 2):
-    mat[2][3] = c([i for i in range(1, 5) if i not in [mat[0][3], mat[1][3], mat[2][0], mat[2][1]]])
+    mat[2][3] = c([i for i in range(1, 5) if (i not in [mat[0][3], mat[1][3], mat[2][0], mat[2][1]]and i not in val)])
+    val.append(mat[2][3])
 elif (n == 3):
-    mat[3][2] = c([i for i in range(1, 5) if i not in [mat[0][2], mat[1][2], mat[3][0], mat[3][1]]])
+    mat[3][2] = c([i for i in range(1, 5) if (i not in [mat[0][2], mat[1][2], mat[3][0], mat[3][1]]and i not in val)])
+    val.append(mat[3][2])
 else:
-    mat[3][3] = c([i for i in range(1, 5) if i not in [mat[0][3], mat[1][3], mat[3][0], mat[3][1]]])
+    mat[3][3] = c([i for i in range(1, 5) if (i not in [mat[0][3], mat[1][3], mat[3][0], mat[3][1]]and i not in val)])
+    val.append(mat[3][3])
 printsudoku(mat)
-"""#SOLVING SUDOKU
+#SOLVING SUDOKU
 # FIRST BOX
+"""
+print("Solution sudoku")
 for i in range(2):
     for j in range(2):
         if (mat[i][j] == " "):
